@@ -1,0 +1,15 @@
+
+
+<h1><%=@list.name  %></h1>
+
+<ul class="list-group">
+  <% @list.bookmarks.each do |bookmark| %>
+    <li> <%= bookmark.movie.title  %>
+    <%= link_to bookmark_path(bookmark.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <i class="fa-solid fa-trash-can"></i>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "back", lists_path %>
