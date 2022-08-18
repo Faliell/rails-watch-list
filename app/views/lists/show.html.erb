@@ -4,6 +4,7 @@
 
 <ul class="list-group">
   <% @list.bookmarks.each do |bookmark| %>
+  <%= render "components/card", bookmark: bookmark %>
     <li> <%= bookmark.movie.title  %>
     <%= link_to bookmark_path(bookmark.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
     <i class="fa-solid fa-trash-can"></i>
